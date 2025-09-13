@@ -2,18 +2,18 @@
 <html lang="en">
 
 <head>
-    <title>Zay Shop eCommerce HTML CSS Template</title>
+    <title>Club Social y Deportivo Unidos por el Deporte</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="apple-touch-icon" href="static/images/apple-icon.png">
-    <link rel="shortcut icon" type="image/x-icon" href="static/images/favicon.ico">
+    
+    <link rel="shortcut icon" type="image/x-icon" href={{url_for('static', filename='images/favicon.ico', _external="true")}}>
 
     <link rel ="stylesheet" href = {{url_for('static',filename= 'css/styles.css', _external=true)}}>
     <link rel ="stylesheet" href = {{url_for('static',filename= 'css/slick-theme.css', _external=true)}}>
     <link rel ="stylesheet" href = {{url_for('static',filename= 'css/bootstrap.min.css', _external=true)}}>
 
     
+
 
 </head>
 
@@ -24,16 +24,11 @@
             <div class="w-100 d-flex justify-content-between">
                 <div>
                     <i class="fa fa-envelope mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@CDUD.com</a>
                     <i class="fa fa-phone mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:+54 9 2323 55-3245">+54 9 2323 55-3245</a>
                 </div>
-                <div>
-                    <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
-                    <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
-                    <a class="text-light" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
-                    <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
-                </div>
+ 
             </div>
         </div>
     </nav>
@@ -41,11 +36,11 @@
 
 
     <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-light shadow">
+<nav class="navbar navbar-expand-lg navbar-light shadow">
         <div class="container d-flex justify-content-between align-items-center">
 
             <a class="navbar-brand text-success logo h1 align-self-center" href="{{ url_for('index') }}">
-                CDUD
+                <img class="logo" src="./static/images/favicon.png">
             </a>
 
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,7 +51,7 @@
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                            <a class="nav-link" href="{{ url_for('index') }}">Inicio</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('registration') }}">Inscripciones</a>
