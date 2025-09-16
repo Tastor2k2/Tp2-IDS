@@ -206,3 +206,7 @@ body, ul, li, p, a, label, input, div {
       flex: 1; 
       margin: 5px; 
     }
+    .map-text{
+     font-size: 1.8em;
+     text-align: right;
+    }
