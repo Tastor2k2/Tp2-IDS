@@ -210,3 +210,6 @@ body, ul, li, p, a, label, input, div {
      font-size: 1.8em;
      text-align: right;
     }
+    .fondo {
+      background-color: #f5f3f2;
+    }

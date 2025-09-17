@@ -44,8 +44,8 @@
     <nav class="navbar navbar-expand-lg navbar-light shadow">
         <div class="container d-flex justify-content-between align-items-center">
 
-            <a class="navbar-brand text-success logo h1 align-self-center" href="{{ url_for('index') }}">
-                <img class="logo" src="./static/images/favicon.png">
+            <a class="navbar-brand text-success logo h1 align-self-center" href="{{ url_for('index', external=True) }}">
+                <img class="logo" src={{url_for('static', filename='images/favicon.png', external=True)}} alt='logo'> 
             </a>
 
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,10 +56,10 @@
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('index') }}">Inicio</a>
+                            <a class="nav-link" href="{{ url_for('index', external=True) }}">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('registration') }}">Inscripciones</a>
+                            <a class="nav-link" href="{{ url_for('registration', external=True) }}">Inscripciones</a>
                         </li>
                     </ul>
                 </div>
@@ -85,31 +85,22 @@
 
 
     <!-- SECCION DE INFORMACION GENERAL -->
-    <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="fondo">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <div class="container">
                     <div class="row p-5">
                         <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="./static/images/banner_img_01.jpg" alt="">
+                            <img class="img-fluid" src={{url_for('static', filename='images/banner_img_01.jpg', external=True)}} alt="imagen index">
                         </div>
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
                             <div class="text-align-left align-self-center">
-                                <h1 class="h1 text-success"><b>Club Social y Deportivo Unidos por el Deporte</b></h1>
-                                <h3 class="h2">Tandil, Buenos Aires 2025</h3>
+                                <h1 class="h1 text-success"><b>{{info_evento[1].organizador}}</b></h1>
+                                <h3 class="h2">{{info_evento[1].nombre}}, {{info_evento[1].localidad}} {{info_evento[1].año}}</h3>
                                 <p>
-                                    El Club Social y Deportivo Unidos por el Deporte invita a todos los amantes del ciclismo a participar de su gran evento en la ciudad de Tandil, Buenos Aires. La cita es el 24 de octubre de 2025 a las 8:00 AM, con un recorrido pensado para disfrutar del deporte, la naturaleza y la camaradería. ¡Sumate y viví una jornada a puro pedal! 
+                                    {{info_evento[1].organizador}} invita a todos los amantes del ciclismo a participar de su gran evento en la ciudad de {{info_evento[1].localidad}}. La cita es el {{info_evento[1].fecha}} a las {{info_evento[1].horario}}, con un recorrido pensado para disfrutar del deporte, la naturaleza y la camaradería. ¡Sumate y viví una jornada a puro pedal! 
                                 </p>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="row p-5">
-                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="./static/images/banner_img_02.jpg" alt="">
                         </div>
                     </div>
                 </div>
@@ -118,6 +109,31 @@
     </div>
     <!-- FIN DE SECCION DE INFORMACION GENERAL -->
 
+        <!-- SECCION DE INFORMACION GENERAL 2-->
+    <div class="fondo">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src={{url_for('static', filename='images/foto_general2.jpg', external=True)}} alt="evento">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left align-self-center">
+                                <h1 class="h1 text-success"><b>{{info_evento[1].tiulo_info_gen2}}</b></h1>
+                                <h3 class="h2">{{info_evento[1].nombre}}, {{info_evento[1].localidad}} {{info_evento[1].año}}</h3>
+                                <p>
+                                    ¡Preparate para el gran evento de ciclismo {{info_evento[1].nombre}} en {{info_evento[1].localidad}}! Las inscripciones están abiertas y podés anotarte en la sección Inscripciones de esta página. Los costos de participación se publicarán en nuestras redes sociales, podés encontrarlas arriba de todo y al final de esta página, y sino haciendo clikc <a href= {{ url_for('registration', external=True)}}>aqui</a> . Para consultar el reglamento oficial, hacé clic en este <a href= {{url_for('static', filename='pdf/reglamento.pdf', external=True)}}>link</a> ¡No te lo pierdas! Vení a disfrutar de un día a pura adrenalina, deporte y comunidad.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN DE SECCION DE INFORMACION GENERAL 2 -->
+
 
     <!-- SECCION DE LOS MAPAS -->
     <section class="container py-5">
@@ -125,20 +141,20 @@
             <div class="col-lg-6 m-auto">
                 <h1 class="h1">MAPAS DEL RECORRIDO</h1>
                 <p>
-                    El evento contará con dos modalidades: un recorrido corto de 30 km, ideal para quienes buscan un desafío moderado, y un recorrido largo de 80 km, pensado para ciclistas con más experiencia.
+                    El evento contará con dos modalidades: un recorrido corto de {{info_evento[1].recorrido_1}} ideal para quienes buscan un desafío moderado, y un recorrido largo de {{info_evento[1].recorrido_2}}, pensado para ciclistas con más experiencia.
                 </p>
             </div>
         </div>
         <div class="row">
             <!-- HACER EL MAPA DE 3OKM -->
             <div class="col-12 col-md-4 p-5 mt-3">
-                <h5 class="map-text mt-3 mb-3">CARRERA DE 30 KM</h5>
+                <h5 class="map-text mt-3 mb-3">CARRERA DE {{info_evento[1].recorrido_1}}</h5>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50767.53043601769!2d-59.142702099999994!3d-37.31952284999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95911f9b2733946f%3A0xceef2c76899c202d!2sTandil%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1758060317009!5m2!1ses!2sar" width="500" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 
             </div>
              <!-- HACER EL MAPA DE 8OKM -->
             <div class="col-12 col-md-4 p-5 mt-3">
-                <h2 class="map-text  mt-3 mb-3">CARRERA DE 80 KM</h2>
+                <h2 class="map-text  mt-3 mb-3">CARRERA DE {{info_evento[1].recorrido_2}}</h2>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50767.53043601769!2d-59.142702099999994!3d-37.31952284999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95911f9b2733946f%3A0xceef2c76899c202d!2sTandil%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1758060317009!5m2!1ses!2sar" width="500" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 
             </div>
@@ -262,8 +278,8 @@
                 <div class="col-md-4 pt-5">
                     <h2 class="h2 text-light border-bottom pb-3 border-light">Indice</h2>
                     <ul class="list-unstyled text-light footer-link-list">
-                        <li><a class="text-decoration-none" href="{{ url_for('index') }}">Inicio</a></li>
-                        <li><a class="text-decoration-none" href="{{ url_for('registration') }}">Inscripciones</a></li>
+                        <li><a class="text-decoration-none" href="{{ url_for('index', external=True) }}">Inicio</a></li>
+                        <li><a class="text-decoration-none" href="{{ url_for('registration', external=True) }}">Inscripciones</a></li>
                     </ul>
                 </div>
 
