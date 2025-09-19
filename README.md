@@ -14,7 +14,7 @@ El script de bash __creacion_entorno_flask.sh__ crea la carpeta <ins>.venv</ins>
 Adicionalmente se hizo otro script de bash: __eliminacion_entorno_flask.sh__ el cual hace los pasos inversos al anterior para borrar el entorno creado,
 y deja al usuario situado en la carpeta __Tp2-IDS__ para así ejecutar comodamente la creación del entorno si este último lo desea.
 
-La linea dentro de la carpeta __.gitignore__ busca no tener en cuenta los archivos __pycache__ y __.venv__ para que cada vez que se ejecute el proyecto, no se tengan que subir cambios referentes a la creación de archivos de caché al repositorio.
+Dentro de __.gitignore__ se busca no tener en cuenta los archivos __pycache__ y __.venv__ para que cada vez que se ejecute el proyecto, no se tengan que subir cambios referentes a la creación de archivos de caché al repositorio.
 
 [Este fué el template usado como modelo](https://plantillashtmlgratis.com/todas-las-plantillas/plantilla/plantilla-web-simple-gratis-zay-shop/)
 
