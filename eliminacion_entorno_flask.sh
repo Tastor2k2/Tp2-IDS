@@ -18,15 +18,24 @@ eliminarCache() {
     fi
 }
 
+desactivarEntorno() {
+    if [[ -n "$VIRTUAL_ENV" ]]; then # variable que muestra si un entorno está activo, si muestra una ruta, está activo
+        echo "---------------------------Desactivando el entorno---------------------------"
+        echo ""
+        deactivate
+    else
+        echo "---------------------------No hay entorno activo---------------------------"
+        echo ""
+    fi
+}
+
 cd $DIRECTORIO_PRINCIPAL
 
 echo ""
 echo "---------------------------Desinstalando Flask---------------------------"
 echo ""
 pip uninstall -y flask
-echo "---------------------------Desactivando el entorno---------------------------"
-echo ""
-deactivate
+desactivarEntorno
 echo "---------------------------Eliminando .venv---------------------------"
 echo ""
 rm -rf .venv
