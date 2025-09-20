@@ -50,5 +50,5 @@ __Comandos para correr: ```flask run``` ó ```flask run --port=<numero_de_puerto
 - Si no hay ningun entorno armado, Ejecutar ```cd ..``` y luego ```source activacion_entorno_flask.sh carpeta_proyecto``` para
 después ejecutar el proyecto con __comandos para correr__.
 
-- Si está flask instalado y la carpeta.venv creada, pero no está el entorno acrivado, ejecutar ```source .venv/bin/activate``` y correr el proyecto con 
+- Si está flask instalado y la carpeta.venv creada, pero no está el entorno activado, ejecutar ```source .venv/bin/activate``` y correr el proyecto con 
 __comandos para correr__.
