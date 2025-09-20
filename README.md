@@ -35,11 +35,11 @@ Dentro de __.gitignore__ se busca no tener en cuenta los archivos __pycache__ y 
 
 ## Cómo correr el proyecto
 
-### Si estamos parados en Tp2-IDS
-
 __(En el caso inicial, ```carpeta_proyecto``` es ```EjPractico2```)__
 
 __Comandos para correr: ```flask run``` ó ```flask run --port=<numero_de_puerto> --debug``` ó ```python3 app.py``` entre otros.__
+
+### Si estamos parados en Tp2-IDS
 
 - Si está el directorio creado pero no está el entorno preparado, se puede ejecutar ```source activacion_entorno_flask.sh carpeta_proyecto``` y ya con eso el usuario quedará situado dentro del proyecto, con el entorno activado, y listo pata correrlo con __comandos para correr__.
 
