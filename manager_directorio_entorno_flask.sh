@@ -38,7 +38,7 @@ crearSubCarpetas() {
     cd ..
     touch app.py
     echo "---------------------------Carpetas Creadas---------------------------"
-    echo ""S
+    echo ""
 }
 
 eliminarDirectorio() {
@@ -58,16 +58,10 @@ verificacionSegParametro() {
         elif [[ "$2" = "-a" ]]; then
             activacionEntornoFlask $PROJECT_FOLDER_NAME
             return 0
-        else
-            main $PROJECT_FOLDER_NAME
-            return 0
         fi
     else
-        echo ""
-        echo "--------------------------------"
-        echo "No existe el directorio a borrar"
-        echo "--------------------------------"
-        echo ""
+        main $PROJECT_FOLDER_NAME
+        return 0
     fi
 }
 
@@ -88,6 +82,7 @@ main() {
     crearCarpetaDirectorio $PROJECT_FOLDER_NAME
     cd "$PROJECT_FOLDER_NAME"
     crearSubCarpetas
+    cd ..
     activacionEntornoFlask $PROJECT_FOLDER_NAME
 }
 
