@@ -1,11 +1,9 @@
 #!/bin/bash
 
-# ES REQUISITO ESTAR FUERA DE LA CARPETA DONDE SE ENCUENTRA EL ENTORNO.
-
 # Ejecutar Para eliminar todo lo relacionado al entorno de flask:
-# source eliminacion_entorno_flask.sh
+# source eliminacion_entorno_flask.sh nombre_carpeta
 
-DIRECTORIO_PRINCIPAL="EjPractico2"
+PROJECT_FOLDER_NAME=$1
 
 eliminarCache() {
     if [[ -d "__pycache__" ]]; then
@@ -29,7 +27,7 @@ desactivarEntorno() {
     fi
 }
 
-cd $DIRECTORIO_PRINCIPAL
+cd $PROJECT_FOLDER_NAME
 
 echo ""
 echo "---------------------------Desinstalando Flask---------------------------"

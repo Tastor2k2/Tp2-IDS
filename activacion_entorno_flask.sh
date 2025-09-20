@@ -3,13 +3,15 @@
 # SE ASUME QUE EL DIRECTORIO EXISTE, ESTE SCRIPT CREA LO NECESARIO PARA FUNCIONAR CON FLASK.
 
 # Ejecutar Para Crear (y quedar dentro del directorio):
-# source creacion_entorno_flask.sh
+# source activacion_entorno_flask.sh nombre_carpeta
 
 # Ejecutar Para Crear (y quedar fuera del directorio):
-# bash creacion_entorno_flask.sh
+# bash activacion_entorno_flask.sh nombre_carpeta
 # si se ejecuta este comando, habrá que entrar manualmente y activar el entorno.
 
-cd EjPractico2
+PROJECT_FOLDER_NAME=$1
+
+cd $PROJECT_FOLDER_NAME
 
 verificarInstalacionPython3() {
     if python3 --version ; then
