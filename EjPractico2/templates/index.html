@@ -1,88 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <title>Club Social y Deportivo Unidos por el Deporte</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <link rel="shortcut icon" type="image/x-icon" href={{url_for('static', filename='images/favicon.ico', _external="true")}}>
-
-    <link rel ="stylesheet" href = {{url_for('static',filename= 'css/styles.css', _external=true)}}>
-    <link rel ="stylesheet" href = {{url_for('static',filename= 'css/slick-theme.css', _external=true)}}>
-    <link rel ="stylesheet" href = {{url_for('static',filename= 'css/bootstrap.min.css', _external=true)}}>
-
-    
-
-</head>
-
-<body>
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
-        <div class="container text-light">
-            <div class="w-100 d-flex justify-content-between">
-                <div>
-                    <i class="fa fa-envelope mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="mail:info@CDUD.com">info@CDUD.com</a>
-                    <i class="fa fa-phone mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:+54 9 2323 55-3245">+54 9 2323 55-3245</a>
-                    <i class="fa fa-envelope mx-2"></i>
-                    <a class="text-decoration-none" href="https://www.instagram.com/">Instagram</a>
-                    <i class="fa fa-envelope mx-2"></i>
-                    <a class="text-decoration-none" href="https://www.facebook.com/?locale=es_LA">Facebook</a>
-                </div>
-                    
-                </div>
- 
-            </div>
-        </div>
-    </nav>
-    <!-- FIN DEL NAVBAR -->
-
-
-    <!-- HEADER -->
-    <nav class="navbar navbar-expand-lg navbar-light shadow">
-        <div class="container d-flex justify-content-between align-items-center">
-
-            <a class="navbar-brand text-success logo h1 align-self-center" href="{{ url_for('index', external=True) }}">
-                <img class="logo" src={{url_for('static', filename='images/favicon.png', external=True)}} alt='logo'> 
-            </a>
-
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
-                <div class="flex-fill">
-                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('index', external=True) }}">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('registration', external=True) }}">Inscripciones</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="navbar align-self-center d-flex">
-                    <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
-                            <div class="input-group-text">
-                                <i class="fa fa-fw fa-search"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
-                        <i class="fa fa-fw fa-search text-dark mr-2"></i>
-                    </a>
-                </div>
-            </div>
-
-        </div>
-    </nav>
-    <!-- FIN DEL HEADER -->
-
-
+{% block content %}
 
     <!-- SECCION DE INFORMACION GENERAL -->
     <div class="fondo">
@@ -146,17 +64,15 @@
             </div>
         </div>
         <div class="row">
-            <!-- HACER EL MAPA DE 3OKM -->
+            <!-- MAPA DE 3OKM -->
             <div class="col-12 col-md-4 p-5 mt-3">
                 <h5 class="map-text mt-3 mb-3">CARRERA DE {{info_evento[1].recorrido_1}}</h5>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50767.53043601769!2d-59.142702099999994!3d-37.31952284999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95911f9b2733946f%3A0xceef2c76899c202d!2sTandil%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1758060317009!5m2!1ses!2sar" width="500" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                
+                <iframe src="https://www.google.com/maps/embed?pb=!1m52!1m12!1m3!1d50765.4057594733!2d-59.14019023648491!3d-37.32266819451745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m37!3e1!4m3!3m2!1d-37.2938313!2d-59.178875899999994!4m3!3m2!1d-37.2954784!2d-59.153434499999996!4m3!3m2!1d-37.296345099999996!2d-59.1384694!4m3!3m2!1d-37.320616199999996!2d-59.1608471!4m3!3m2!1d-37.316613!2d-59.122613099999995!4m3!3m2!1d-37.331569099999996!2d-59.150709799999994!4m3!3m2!1d-37.3216043!2d-59.103502899999995!4m3!3m2!1d-37.3526333!2d-59.131552!4m3!3m2!1d-37.3409341!2d-59.118570899999995!5e0!3m2!1ses!2sar!4v1758433505866!5m2!1ses!2sar" width="500" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-             <!-- HACER EL MAPA DE 8OKM -->
+             <!-- MAPA DE 8OKM -->
             <div class="col-12 col-md-4 p-5 mt-3">
                 <h2 class="map-text  mt-3 mb-3">CARRERA DE {{info_evento[1].recorrido_2}}</h2>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50767.53043601769!2d-59.142702099999994!3d-37.31952284999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95911f9b2733946f%3A0xceef2c76899c202d!2sTandil%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1758060317009!5m2!1ses!2sar" width="500" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                
+                <iframe src="https://www.google.com/maps/embed?pb=!1m56!1m12!1m3!1d25387.028146659424!2d-59.18274001253087!3d-37.30986063608922!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m41!3e1!4m3!3m2!1d-37.2896918!2d-59.2024853!4m3!3m2!1d-37.275743!2d-59.119868399999994!4m3!3m2!1d-37.2775525!2d-59.0981659!4m3!3m2!1d-37.337016!2d-59.065704499999995!4m3!3m2!1d-37.3589511!2d-59.184758599999995!4m3!3m2!1d-37.3164219!2d-59.2039319!4m3!3m2!1d-37.3084821!2d-59.1600744!4m3!3m2!1d-37.2992753!2d-59.097648799999995!4m3!3m2!1d-37.347208099999996!2d-59.1908299!4m3!3m2!1d-37.2894272!2d-59.1917714!5e0!3m2!1ses!2sar!4v1758433850402!5m2!1ses!2sar" width="500" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
@@ -252,64 +168,7 @@
         </div>
     </section>
     <!-- FIN SECCION DE SPONSORS -->
+     
+{% endblock %}
 
 
-    <!-- FOOTER -->
-    <footer class="bg-dark" id="tempaltemo_footer">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-md-4 pt-5">
-                    <h2 class="h2 text-success border-bottom pb-3 border-light logo">Club Social y Deportivo Unidos por el Deporte</h2>
-                    <ul class="list-unstyled text-light footer-link-list">
-                        <li>
-                            <i class="fa fa-phone fa-fw"></i>
-                            <a class="text-decoration-none" href="tel:54 9 2323 55-3245">+54 9 2323 55-3245</a>
-                        </li>
-                        <li>
-                            <i class="fa fa-envelope fa-fw"></i>
-                            <a class="text-decoration-none" href="mail:info@CDUD.com">info@CDUD.com</a>
-                        </li>
-                        <li><a class="text-decoration-none" href="https://www.instagram.com/">Instagram</a></li>
-                        <li><a class="text-decoration-none" href="https://www.facebook.com/?locale=es_LA">Facebook</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-md-4 pt-5">
-                    <h2 class="h2 text-light border-bottom pb-3 border-light">Indice</h2>
-                    <ul class="list-unstyled text-light footer-link-list">
-                        <li><a class="text-decoration-none" href="{{ url_for('index', external=True) }}">Inicio</a></li>
-                        <li><a class="text-decoration-none" href="{{ url_for('registration', external=True) }}">Inscripciones</a></li>
-                    </ul>
-                </div>
-
-            </div>
-
-            
-        </div>
-
-        <div class="w-100 bg-black py-3">
-            <div class="container">
-                <div class="row pt-2">
-                    <div class="col-12">
-                        <p class="text-left text-light">
-                        Designed by Matias Cancia, Pedro Perez Mochetti y Matias Agustin Alvarez
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </footer>
-        <!-- FIN FOOTER -->
-
-    <!-- Start Script -->
-    <script src="static/js/jquery-1.11.0.min.js"></script>
-    <script src="static/js/jquery-migrate-1.2.1.min.js"></script>
-    <script src="static/js/bootstrap.bundle.min.js"></script>
-    <script src="static/js/templatemo.js"></script>
-    <script src="static/js/custom.js"></script>
-    <!-- End Script -->
-</body>
-
-</html>
