@@ -77,6 +77,37 @@
     {% block content %}
 
     {% endblock %}
+
+    {% block sponsors %}
+    <!-- SECCION DE SPONSORS -->
+    <section class="bg-light">
+        <div class="container py-5">
+            <div class="row text-center py-3">
+                <div class="col-lg-6 m-auto">
+                    <h1 class="h1">Auspicia este evento</h1>
+                    <p>
+                        Agradecemos a nuestros sponsors por su apoyo y compromiso, que hacen posible este evento y nos ayudan a seguir impulsando el deporte en nuestra comunidad.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                {% for sponsor in sponsors %}
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img class="card-img-top" src="{{ url_for('static', filename=sponsor.img, external=True) }}" alt="...">
+                        <div class="card-body">
+                            <ul class="list-unstyled d-flex justify-content-between"></ul>
+                            <p class="h2 text-decoration-none text-dark">{{ sponsor.name }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- FIN SECCION DE SPONSORS -->
+    {% endblock %}
+
     <!-- FOOTER -->
     <footer class="bg-dark" id="tempaltemo_footer">
         <div class="container">
