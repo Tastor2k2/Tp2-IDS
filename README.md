@@ -13,9 +13,9 @@
 El script principal es __manager_directorio_entorno_flask.sh__ el cual permite crear el directorio con sus archivos y carpetas básicos para empezar a trabajar.
 Además el script recibe minimo 1 parámetro, aunque puede recibir hasta 2.
 El primer parámetro determina el nombre de la carpeta donde estarán los archivos y carpetas armados tal y como lo pide la consigna.
-El segundo determina acciones a hacer por sobre el directorio donde está el proyecto, siento dos posibles acciones: Activar y Eliminar.
+El segundo determina acciones a hacer por sobre el directorio donde está el proyecto, siendo dos posibles acciones: Activar y Eliminar.
 
-- Con ```-a``` se ejecuta el script __activacion_entorno_flask.sh__ el cual recibe el nombre de la carpeta del proyecto por parámetro. Ese script lo que hace es las respectivas verificaciones, para luego crear la carpeta <ins>.venv</ins>, luego activar el entorno, para finalmente instalar <ins>Flask</ins>.
+- Con ```-a``` se ejecuta el script __activacion_entorno_flask.sh__ el cual recibe el nombre de la carpeta del proyecto por parámetro. Ese script realiza las respectivas verificaciones, para luego crear la carpeta <ins>.venv</ins>, luego activar el entorno, para finalmente instalar <ins>Flask</ins>.
 
 - Con ```-d``` se ejecuta el script __eliminacion_entorno_flask.sh__ que tambien recibe por parametro el nombre de la carpeta del proyecto. Lo que el script son
 los pasos inversos al mencionado anteriormente, siendo que desinstala <ins>Flask</ins>, desactiva el entorno y borra la carpeta <ins>.venv</ins>.
