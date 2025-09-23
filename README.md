@@ -2,11 +2,9 @@
 
 ## Integrantes:
 
-- Matías Cancina - 111735
+- Matías Agustín Cancina - 111735
 
 - Pedro Perez Mochetti - 114213
-
-- Matias Agustin Alvarez - 114220
 
 ## Observaciones
 
