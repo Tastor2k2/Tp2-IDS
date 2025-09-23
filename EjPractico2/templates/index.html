@@ -3,21 +3,45 @@
 {% block content %}
 
     <!-- SECCION DE INFORMACION GENERAL -->
-    <div class="fondo">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="container">
-                    <div class="row p-5">
-                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src={{url_for('static', filename='images/banner_img_01.jpg', external=True)}} alt="imagen index">
+    <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
+            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
+        </ol>
+        <div class="fondo">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container">
+                        <div class="row p-5">
+                            <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                                <img class="img-fluid" src={{url_for('static', filename='images/banner_img_01.jpg', external=True)}} alt="imagen index">
+                            </div>
+                            <div class="col-lg-6 mb-0 d-flex align-items-center">
+                                <div class="text-align-left align-self-center">
+                                    <h1 class="h1 text-success"><b>{{info_evento[1].organizador}}</b></h1>
+                                    <h3 class="h2">{{info_evento[1].nombre}}, {{info_evento[1].localidad}} {{info_evento[1].año}}</h3>
+                                    <p>
+                                        {{info_evento[1].organizador}} invita a todos los amantes del ciclismo a participar de su gran evento en la ciudad de {{info_evento[1].localidad}}. La cita es el {{info_evento[1].fecha}} a las {{info_evento[1].horario}}, con un recorrido pensado para disfrutar del deporte, la naturaleza y la camaradería. ¡Sumate y viví una jornada a puro pedal! 
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left align-self-center">
-                                <h1 class="h1 text-success"><b>{{info_evento[1].organizador}}</b></h1>
-                                <h3 class="h2">{{info_evento[1].nombre}}, {{info_evento[1].localidad}} {{info_evento[1].año}}</h3>
-                                <p>
-                                    {{info_evento[1].organizador}} invita a todos los amantes del ciclismo a participar de su gran evento en la ciudad de {{info_evento[1].localidad}}. La cita es el {{info_evento[1].fecha}} a las {{info_evento[1].horario}}, con un recorrido pensado para disfrutar del deporte, la naturaleza y la camaradería. ¡Sumate y viví una jornada a puro pedal! 
-                                </p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container">
+                        <div class="row p-5">
+                            <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                                <img class="img-fluid" src={{url_for('static', filename='images/foto_general2.jpg', external=True)}} alt="evento">
+                            </div>
+                            <div class="col-lg-6 mb-0 d-flex align-items-center">
+                                <div class="text-align-left align-self-center">
+                                    <h1 class="h1 text-success"><b>{{info_evento[1].tiulo_info_gen2}}</b></h1>
+                                    <h3 class="h2">{{info_evento[1].nombre}}, {{info_evento[1].localidad}} {{info_evento[1].año}}</h3>
+                                    <p>
+                                        ¡Preparate para el gran evento de ciclismo {{info_evento[1].nombre}} en {{info_evento[1].localidad}}! Las inscripciones están abiertas y podés anotarte en la sección Inscripciones de esta página. Los costos de participación se publicarán en nuestras redes sociales, podés encontrarlas arriba de todo y al final de esta página, y sino haciendo clikc <a href= {{ url_for('registration', external=True)}}>aqui</a> . Para consultar el reglamento oficial, hacé clic en este <a href= {{url_for('static', filename='pdf/reglamento.pdf', external=True)}}>link</a> ¡No te lo pierdas! Vení a disfrutar de un día a pura adrenalina, deporte y comunidad.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -26,33 +50,7 @@
         </div>
     </div>
     <!-- FIN DE SECCION DE INFORMACION GENERAL -->
-
-        <!-- SECCION DE INFORMACION GENERAL 2-->
-    <div class="fondo">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="container">
-                    <div class="row p-5">
-                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src={{url_for('static', filename='images/foto_general2.jpg', external=True)}} alt="evento">
-                        </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left align-self-center">
-                                <h1 class="h1 text-success"><b>{{info_evento[1].tiulo_info_gen2}}</b></h1>
-                                <h3 class="h2">{{info_evento[1].nombre}}, {{info_evento[1].localidad}} {{info_evento[1].año}}</h3>
-                                <p>
-                                    ¡Preparate para el gran evento de ciclismo {{info_evento[1].nombre}} en {{info_evento[1].localidad}}! Las inscripciones están abiertas y podés anotarte en la sección Inscripciones de esta página. Los costos de participación se publicarán en nuestras redes sociales, podés encontrarlas arriba de todo y al final de esta página, y sino haciendo clikc <a href= {{ url_for('registration', external=True)}}>aqui</a> . Para consultar el reglamento oficial, hacé clic en este <a href= {{url_for('static', filename='pdf/reglamento.pdf', external=True)}}>link</a> ¡No te lo pierdas! Vení a disfrutar de un día a pura adrenalina, deporte y comunidad.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- FIN DE SECCION DE INFORMACION GENERAL 2 -->
-
-
+ 
     <!-- SECCION DE LOS MAPAS -->
     <section class="container py-5">
         <div class="row text-center pt-3">
@@ -77,7 +75,39 @@
         </div>
     </section>
     <!-- FIN DE SECCION DE LOS MAPAS -->
+
+    <!-- SECCION DE SPONSORS -->
+
+    <!-- FIN SECCION DE SPONSORS -->
      
+{% endblock %}
+
+{% block sponsors %}
+    <section class="bg-light">
+        <div class="container py-5">
+            <div class="row text-center py-3">
+                <div class="col-lg-6 m-auto">
+                    <h1 class="h1">Auspicia este evento</h1>
+                    <p>
+                        Agradecemos a nuestros sponsors por su apoyo y compromiso, que hacen posible este evento y nos ayudan a seguir impulsando el deporte en nuestra comunidad.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                {% for sponsor in sponsors %}
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img class="card-img-top" src="{{ url_for('static', filename=sponsor.img, external=True) }}" alt="...">
+                        <div class="card-body">
+                            <ul class="list-unstyled d-flex justify-content-between"></ul>
+                            <p class="h2 text-decoration-none text-dark">{{ sponsor.name }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
 {% endblock %}
 
 
