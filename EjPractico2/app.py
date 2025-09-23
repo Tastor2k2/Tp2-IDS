@@ -13,10 +13,12 @@ info_evento={
         "recorrido_1": "30Km",
         "recorrido_2": "80Km",
     2:{
-        "ausp1":"Adidas",
-        "ausp2":"Assos",
-        "ausp3":"Gatorade",
-        "ausp4":"",
+        "ausp1": "Adidas",
+        "ausp2": "Assos",
+        "ausp3": "Gatorade",
+        "ausp4": "Giro",
+        "ausp5": "Topper",
+        "ausp6": "Monster",
      }
     }
 
