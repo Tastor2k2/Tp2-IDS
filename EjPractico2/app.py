@@ -13,18 +13,27 @@ info_evento={
         "recorrido_1": "30Km",
         "recorrido_2": "80Km",
     2:{
-        "ausp1":"",
-        "ausp2":"",
-        "ausp3":"",
-        "ausp4":"",
+        "ausp1": "Adidas",
+        "ausp2": "Assos",
+        "ausp3": "Gatorade",
+        "ausp4": "Giro",
+        "ausp5": "Topper",
+        "ausp6": "Monster",
      }
     }
 
 }
 @app.route("/")
 def index():
-    
-    return render_template('index.html', info_evento=info_evento)
+    sponsors = [
+        {"img": "images/sponsor-adidas.png", "name": info_evento[1][2]['ausp1']},
+        {"img": "images/sponsor-assos.png", "name": info_evento[1][2]['ausp2']},
+        {"img": "images/sponsor-gatorade.png", "name": info_evento[1][2]['ausp3']},
+        {"img": "images/sponsor-giro.png", "name": info_evento[1][2]['ausp4']},
+        {"img": "images/sponsor-topper.png", "name": info_evento[1][2]['ausp5']},
+        {"img": "images/monster_logo.png", "name": info_evento[1][2]['ausp6']}
+    ]
+    return render_template('index.html', info_evento=info_evento, sponsors=sponsors)
 
 @app.route("/registration")
 def registration():
