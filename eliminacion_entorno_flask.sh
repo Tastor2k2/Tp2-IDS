@@ -40,6 +40,9 @@ desactivarEntorno
 echo "---------------------------Eliminando .venv---------------------------"
 echo ""
 rm -rf .venv
+echo "---------------------------Eliminando .env---------------------------"
+echo ""
+rm -rf .env
 eliminarCache
 
 cd ..

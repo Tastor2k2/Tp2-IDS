@@ -52,6 +52,22 @@ verificarInstalacionFlaskMail() {
     fi
 }
 
+crearEnv() {
+    echo "---------------------------Creando .env---------------------------"
+    echo ""
+    touch .env
+    echo "---------------------------Llenando .env---------------------------"
+    echo ""
+    echo "SECRET_KEY=una-clave-secreta-muy-larga-y-unica" >> .env
+    echo "MAIL_SERVER=smtp.gmail.com" >> .env
+    echo "MAIL_PORT=587" >> .env
+    echo "MAIL_USE_TLS=True" >> .env
+    echo "MAIL_USE_SSL=False" >> .env
+    echo "MAIL_USERNAME=tu-email@gmail.com" >> .env
+    echo "MAIL_PASSWORD=tu-app-password" >> .env
+    echo "MAIL_DEFAULT_SENDER=tu-email@gmail.com" >> .env
+}
+
 verificarInstalacionPython3
 
 verificarInstalacionPip3
@@ -62,6 +78,7 @@ echo ""
 echo "---------------------------Creando .venv---------------------------"
 echo ""
 python3 -m venv .venv # Comando para crear la carpeta .venv para el entorno.
+crearEnv
 echo "---------------------------Activando el entorno---------------------------"
 echo ""
 source .venv/bin/activate # activacion del entorno virtual
