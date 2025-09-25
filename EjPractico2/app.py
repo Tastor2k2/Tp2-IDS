@@ -4,13 +4,15 @@ from flask_mail import Mail, Message
 
 app = Flask(__name__)
 
+app.secret_key = "chmf jwth xqnz ctxj" # me lo pide para mandar mails a @gmail porque tira el error de abajo:
+# "Error al enviar mail: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret."
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
-app.config['MAIL_USERNAME'] = 'your-email@gmail.com'
-app.config['MAIL_PASSWORD'] = 'your-email-password'
-app.config['MAIL_DEFAULT_SENDER'] = 'your-email@gmail.com'
+app.config['MAIL_USERNAME'] = 'saulgoodmansape@gmail.com'
+app.config['MAIL_PASSWORD'] = 'chmf jwth xqnz ctxj'
+app.config['MAIL_DEFAULT_SENDER'] = 'saulgoodmansape@gmail.com'
 mail = Mail(app)
 
 info_evento={
@@ -51,15 +53,14 @@ def registration():
     if request.method == "POST":
         nombre = request.form["nombre"]
         apellido = request.form["apellido"]
-        email = request.form["email"]
+        email_usuario = request.form["email_usr"]
         dni = request.form["dni"]
         carrera = request.form.get("carrera_seleccion", "No seleccionada")
         aclaraciones = request.form["aclaraciones"]
 
-        # Crear el mail de confirmación
         msg = Message(
             subject="Confirmación de inscripción",
-            recipients=[email]  # destinatario = usuario
+            recipients=[email_usuario]
         )
         msg.body = f"""
         ¡Hola {nombre} {apellido}!
@@ -78,6 +79,7 @@ def registration():
             mail.send(msg)
             flash("Inscripcion enviada con éxito al mail.", "success")
         except Exception as e:
+            print("Error al enviar mail:", e)
             flash(f"Error al enviar el mail: {e}", "danger")
 
     return render_template("registration.html")
