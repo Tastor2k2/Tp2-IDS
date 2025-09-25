@@ -39,6 +39,19 @@ verificarInstalacionPip3() {
     fi
 }
 
+verificarInstalacionFlaskMail() {
+    if pip list | grep Flask-Mail ; then
+    echo ""
+    echo "---------------------------Flask-Mail ya está instalado---------------------------"
+    echo ""
+    else
+        echo ""
+        echo "---------------------------Flask-Mail se instalará---------------------------"
+        echo ""
+        pip install Flask-Mail
+    fi
+}
+
 verificarInstalacionPython3
 
 verificarInstalacionPip3
@@ -55,6 +68,7 @@ source .venv/bin/activate # activacion del entorno virtual
 echo "---------------------------Instalando Flask---------------------------"
 echo ""
 pip install flask # instalar flask
+verificarInstalacionFlaskMail
 
 # En vs code, dentro del entorno en app.py tocar F1 y colocar
 # >interpreter, luego Enter y elegir python (.venv)

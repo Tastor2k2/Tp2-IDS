@@ -30,6 +30,9 @@ desactivarEntorno() {
 cd $PROJECT_FOLDER_NAME
 
 echo ""
+echo "---------------------------Desinstalando Flask-Mail---------------------------"
+pip uninstall -y flask-mail
+echo ""
 echo "---------------------------Desinstalando Flask---------------------------"
 echo ""
 pip uninstall -y flask
