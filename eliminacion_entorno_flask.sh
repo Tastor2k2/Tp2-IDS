@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# TODOS LOS CHEQUEOS DE INSTALACION SE OCULTAN DE LA SALIDA DE LA TERMINAL, PARA QUE NO MUEVA LOS MENSAJES DE CONFIRMACION.
+
 # Ejecutar Para eliminar todo lo relacionado al entorno de flask:
 # source eliminacion_entorno_flask.sh nombre_carpeta
 

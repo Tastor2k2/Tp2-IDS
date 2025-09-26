@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # SE ASUME QUE EL DIRECTORIO EXISTE, ESTE SCRIPT CREA LO NECESARIO PARA FUNCIONAR CON FLASK.
+# TODOS LOS CHEQUEOS DE INSTALACION SE OCULTAN DE LA SALIDA DE LA TERMINAL, PARA QUE NO MUEVA LOS MENSAJES DE CONFIRMACION.
 
 # Ejecutar Para Crear (y quedar dentro del directorio):
 # source activacion_entorno_flask.sh nombre_carpeta
@@ -61,7 +62,7 @@ crearVenv() {
         echo ""
         echo "---------------------------Creando .venv---------------------------"
         echo ""
-        python3 -m venv .venv # Comando para crear la carpeta .venv para el entorno.
+        python3 -m venv .venv
     fi
 }
 
@@ -70,7 +71,7 @@ ActivacionEntornoVirtual() {
         echo ""
         echo "---------------------------Se activará el entorno virtual---------------------------"
         echo ""
-        source .venv/bin/activate # activacion del entorno virtual
+        source .venv/bin/activate
     else
         echo ""
         echo "----------------Entorno virtual activado previamente en: $VIRTUAL_ENV----------------"
@@ -158,6 +159,3 @@ instalarFlask
 instalarFlaskMail
 
 instalarDotenv
-
-# En vs code, dentro del entorno en app.py tocar F1 y colocar
-# >interpreter, luego Enter y elegir python (.venv)
