@@ -1,18 +1,22 @@
 from flask import Flask, render_template, request, redirect, flash
-
 from flask_mail import Mail, Message
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 app = Flask(__name__)
 
-app.secret_key = "chmf jwth xqnz ctxj" # me lo pide para mandar mails a @gmail porque tira el error de abajo:
-# "Error al enviar mail: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret."
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 587
-app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USE_SSL'] = False
-app.config['MAIL_USERNAME'] = 'saulgoodmansape@gmail.com'
-app.config['MAIL_PASSWORD'] = 'chmf jwth xqnz ctxj'
-app.config['MAIL_DEFAULT_SENDER'] = 'saulgoodmansape@gmail.com'
+# Condiguro los datos para el envio del mail de form sacando los datos de .env
+app.secret_key = os.getenv("SECRET_KEY")
+app.config['MAIL_SERVER'] = os.getenv("MAIL_SERVER")
+app.config['MAIL_PORT'] = int(os.getenv("MAIL_PORT"))
+app.config['MAIL_USE_TLS'] = os.getenv("MAIL_USE_TLS") == "True"
+app.config['MAIL_USE_SSL'] = os.getenv("MAIL_USE_SSL") == "True"
+app.config['MAIL_USERNAME'] = os.getenv("MAIL_USERNAME")
+app.config['MAIL_PASSWORD'] = os.getenv("MAIL_PASSWORD")
+app.config['MAIL_DEFAULT_SENDER'] = os.getenv("MAIL_DEFAULT_SENDER")
+
 mail = Mail(app)
 
 info_evento={

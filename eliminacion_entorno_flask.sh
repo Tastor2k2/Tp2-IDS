@@ -36,6 +36,9 @@ echo ""
 echo "---------------------------Desinstalando Flask---------------------------"
 echo ""
 pip uninstall -y flask
+echo "---------------------------Desinstalando python-dotenv---------------------------"
+echo ""
+pip uninstall -y python-dotenv
 desactivarEntorno
 echo "---------------------------Eliminando .venv---------------------------"
 echo ""
