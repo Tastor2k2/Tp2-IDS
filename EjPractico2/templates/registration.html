@@ -23,10 +23,9 @@
     <!-- Start Content Page -->
     <div class="container-fluid bg-light py-5">
         <div class="col-md-6 m-auto text-center">
-            <h1 class="h1">Contact Us</h1>
+            <h1 class="h1">Inscribase!</h1>
             <p>
-                Proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                Lorem ipsum dolor sit amet.
+                Se le enviarán sus datos y la carrera elegida a su email como comprobante.
             </p>
         </div>
     </div>
@@ -34,28 +33,43 @@
 
     <div class="container py-5">
         <div class="row py-5">
-            <form class="col-md-9 m-auto" method="post" role="form">
+            <form class="col-md-9 m-auto" method="post" action="{{ url_for('registration', external=True) }}" role="form">
                 <div class="row">
                     <div class="form-group col-md-6 mb-3">
-                        <label for="inputname">Name</label>
-                        <input type="text" class="form-control mt-1" id="name" name="name" placeholder="Name">
+                        <label for="inputname">Nombre</label>
+                        <input type="text" class="form-control mt-1" id="nombre" name="nombre" placeholder="Nombre">
+                    </div>
+                    <div class="form-group col-md-6 mb-3">
+                        <label for="inputname">Apellido</label>
+                        <input type="text" class="form-control mt-1" id="apellido" name="apellido" placeholder="Apellido">
                     </div>
                     <div class="form-group col-md-6 mb-3">
                         <label for="inputemail">Email</label>
-                        <input type="email" class="form-control mt-1" id="email" name="email" placeholder="Email">
+                        <input type="email" class="form-control mt-1" id="email_usr" name="email_usr" placeholder="Email">
+                    </div>
+                    <div class="form-group col-md-6 mb-3">
+                        <label for="inputemail">DNI</label>
+                        <input type="text" class="form-control mt-1" id="dni" name="dni" placeholder="DNI">
                     </div>
                 </div>
-                <div class="mb-3">
-                    <label for="inputsubject">Subject</label>
-                    <input type="text" class="form-control mt-1" id="subject" name="subject" placeholder="Subject">
+                <div class="col-md-6 m-auto text-center">
+                    <h2>Carrera elegida:</h2>
+                </div>
+                <div class="form-group col-md-6 mb-3">
+                    <input type="radio" id="carrera_seleccion" name="carrera_seleccion" value="Carrera de 30 Km">
+                    <label for="html">Carrera de 30 Km</label><br>
+                </div>
+                <div class="form-group col-md-6 mb-3">
+                    <input type="radio" id="carrera_seleccion" name="carrera_seleccion" value="Carrera de 80 Km">
+                    <label for="html">Carrera de 80 Km</label><br>
                 </div>
                 <div class="mb-3">
-                    <label for="inputmessage">Message</label>
-                    <textarea class="form-control mt-1" id="message" name="message" placeholder="Message" rows="8"></textarea>
+                    <label for="inputmessage">Aclaraciones extra</label>
+                    <textarea class="form-control mt-1" id="aclaraciones" name="aclaraciones" placeholder="Aclaraciones extra" rows="8"></textarea>
                 </div>
                 <div class="row">
                     <div class="col text-end mt-2">
-                        <button type="submit" class="btn btn-success btn-lg px-3">Let’s Talk</button>
+                        <button type="submit" class="btn btn-success btn-lg px-3">Enviar</button>
                     </div>
                 </div>
             </form>

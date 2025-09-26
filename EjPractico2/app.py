@@ -1,6 +1,24 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, flash
+from flask_mail import Mail, Message
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 app = Flask(__name__)
+
+# Condiguro los datos para el envio del mail de form sacando los datos de .env
+app.secret_key = os.getenv("SECRET_KEY")
+app.config['MAIL_SERVER'] = os.getenv("MAIL_SERVER")
+app.config['MAIL_PORT'] = int(os.getenv("MAIL_PORT"))
+app.config['MAIL_USE_TLS'] = os.getenv("MAIL_USE_TLS") == "True"
+app.config['MAIL_USE_SSL'] = os.getenv("MAIL_USE_SSL") == "True"
+app.config['MAIL_USERNAME'] = os.getenv("MAIL_USERNAME")
+app.config['MAIL_PASSWORD'] = os.getenv("MAIL_PASSWORD")
+app.config['MAIL_DEFAULT_SENDER'] = os.getenv("MAIL_DEFAULT_SENDER")
+
+mail = Mail(app)
+
 info_evento={
     1:{
         "nombre": "MTB rural",
@@ -21,7 +39,6 @@ info_evento={
         "ausp6": "Monster",
      }
     }
-
 }
 @app.route("/")
 def index():
@@ -35,10 +52,41 @@ def index():
     ]
     return render_template('index.html', info_evento=info_evento, sponsors=sponsors)
 
-@app.route("/registration")
+@app.route("/registration", methods=["GET", "POST"])
 def registration():
-    
-    return render_template('registration.html')
+    if request.method == "POST":
+        nombre = request.form["nombre"]
+        apellido = request.form["apellido"]
+        email_usuario = request.form["email_usr"]
+        dni = request.form["dni"]
+        carrera = request.form.get("carrera_seleccion", "No seleccionada")
+        aclaraciones = request.form["aclaraciones"]
+
+        msg = Message(
+            subject="Confirmación de inscripción",
+            recipients=[email_usuario]
+        )
+        msg.body = f"""
+        ¡Hola {nombre} {apellido}!
+
+        Hemos recibido tu inscripción correctamente.
+
+        Tus datos:
+        - DNI: {dni}
+        - Carrera: {carrera}
+        - Aclaraciones: {aclaraciones}
+
+        Muchas gracias por inscribirte.
+        """
+
+        try:
+            mail.send(msg)
+            flash("Inscripcion enviada con éxito al mail.", "success")
+        except Exception as e:
+            print("Error al enviar mail:", e)
+            flash(f"Error al enviar el mail: {e}", "danger")
+
+    return render_template("registration.html")
     
 if __name__  == "__main__":
     app.run("127.0.0.1", port= "5002", debug=True)
