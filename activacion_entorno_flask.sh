@@ -66,7 +66,7 @@ crearVenv() {
 }
 
 ActivacionEntornoVirtual() {
-    if [[ -z "$VIRTUAL_ENV" ]]; then
+    if [[ -z "$VIRTUAL_ENV" ]]; then # True si da cero, queriendo decir que no hay entorno virtual activo.
         echo ""
         echo "---------------------------Se activará el entorno virtual---------------------------"
         echo ""
@@ -128,11 +128,24 @@ instalarFlask() {
     fi
 }
 
+instalarPython312Venv() {
+    if apt list --installed | grep python3.12-venv > /dev/null 2>&1 ; then
+        echo ""
+        echo "---------------------------Python3.12-venv ya estaba instalado---------------------------"
+        echo ""
+    else
+        echo ""
+        echo "---------------------------Instalando Python3.12-venv---------------------------"
+        echo ""
+        sudo apt install python3.12-venv
+    fi
+}
+
 instalarPython3
 
-instalarPip3Pip3
+instalarPip3
 
-sudo apt install python3.12-venv
+instalarPython312Venv
 
 crearVenv
 
@@ -145,7 +158,6 @@ instalarFlask
 instalarFlaskMail
 
 instalarDotenv
-
 
 # En vs code, dentro del entorno en app.py tocar F1 y colocar
 # >interpreter, luego Enter y elegir python (.venv)
