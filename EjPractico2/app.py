@@ -7,7 +7,7 @@ load_dotenv()
 
 app = Flask(__name__)
 
-# Condiguro los datos para el envio del mail de form sacando los datos de .env
+# Configuro los datos para el envio del mail de form sacando los datos de .env
 app.secret_key = os.getenv("SECRET_KEY")
 app.config['MAIL_SERVER'] = os.getenv("MAIL_SERVER")
 app.config['MAIL_PORT'] = int(os.getenv("MAIL_PORT"))
